@@ -1,0 +1,56 @@
+{
+    "name": "profaller/yiitrix-app",
+    "description": "",
+    "keywords": ["bitrix", "yii2", "mvc"],
+    "homepage": "https://github.com/profaller/yiitrix-app",
+    "type": "lib",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/profaller/yiitrix-app/issues",
+        "source": "https://github.com/profaller/yiitrix-app"
+    },
+    "authors": [
+        {
+            "name": "AlexF",
+            "email": "hello.profaller@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "~2.0.5",
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "yiisoft/yii2-swiftmailer": "~2.0.0"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.0.0",
+        "yiisoft/yii2-gii": "~2.0.0",
+        "yiisoft/yii2-faker": "~2.0.0"
+    },
+    "config": {
+        "process-timeout": 1800
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::postCreateProject"
+        ]
+    },
+    "extra": {
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "runtime": "0777",
+                    "web/assets": "0777",
+                    "yii": "0755"
+                }
+            ],
+            "generateCookieValidationKey": [
+                "config/web.php"
+            ]
+        },
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}
